@@ -1,0 +1,18 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Global styles for the body */
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  background-color: #f5f5f5; /* Light grey background */
+}
+
+/* Ensure material components respect rounded corners and spacing */
+.mat-card, .mat-toolbar, .mat-table, .mat-dialog-container {
+  border-radius: 8px !important;
+}
+
+/* Basic button styling to ensure consistency */
+.mat-raised-button, .mat-button {
+  border-radius: 5px !important;
+}

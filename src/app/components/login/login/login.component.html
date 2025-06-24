@@ -1,0 +1,28 @@
+<div class="login-container mat-elevation-z8">
+    <mat-card>
+      <mat-card-title>Login to Service Request Manager</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" required>
+            <mat-error *ngIf="loginForm.controls['username'].hasError('required')">Username is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" required>
+            <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Password is required</mat-error>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || loading">
+            <mat-spinner *ngIf="loading" [diameter]="20"></mat-spinner>
+            Login
+          </button>
+        </form>
+      </mat-card-content>
+      <mat-card-footer>
+        <p>Demo credentials: Username: <b>testuser</b>, Password: <b>password123</b></p>
+      </mat-card-footer>
+    </mat-card>
+  </div>
