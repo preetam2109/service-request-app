@@ -103,7 +103,7 @@ This full-stack Service Request Manager application is deployed as follows:
 | Frontend   | Angular 15+      | [Netlify](https://www.netlify.com/) |
 | Backend    | ASP.NET Core Web API | [Render](https://render.com/) |
 | Database   | SQL Server       | [Somee](https://somee.com/) |
-| API Testing| Postman / Thunder Client | Local |
+| API Testing| Postman /  Local |
 
 
 ## 🚀 Installation
