@@ -1,1 +1,37 @@
-<p>service-request-detail works!</p>
+<mat-toolbar color="primary">
+    <span>Service Request Details</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="backToList()">Back to List</button>
+    <button mat-raised-button color="accent" (click)="editRequest()" *ngIf="request">
+      <mat-icon>edit</mat-icon> Edit Request
+    </button>
+  </mat-toolbar>
+  
+  <div class="detail-container mat-elevation-z8">
+    <mat-card *ngIf="request; else loadingOrNotFound">
+      <mat-card-header>
+        <mat-card-title>{{ request.title }}</mat-card-title>
+        <mat-card-subtitle>ID: {{ request.id }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Description:</strong> {{ request.description }}</p>
+        <p><strong>Status:</strong> <span [class.status-open]="request.status === 'Open'" [class.status-inprogress]="request.status === 'In Progress'" [class.status-closed]="request.status === 'Closed'">{{ request.status }}</span></p>
+        <p><strong>Created By:</strong> {{ request.createdBy }}</p>
+        <p><strong>Created Date:</strong> {{ request.createdDate | date:'fullDate' }} at {{ request.createdDate | date:'shortTime' }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="editRequest()">Edit</button>
+        <button mat-button (click)="backToList()">Back</button>
+      </mat-card-actions>
+    </mat-card>
+  
+    <ng-template #loadingOrNotFound>
+      <div *ngIf="isLoading" class="loading-spinner">
+        <mat-spinner></mat-spinner>
+        <p>Loading request details...</p>
+      </div>
+      <div *ngIf="!isLoading && !request" class="not-found">
+        <p>Service request not found or an error occurred.</p>
+      </div>
+    </ng-template>
+  </div>

@@ -94,6 +94,8 @@ export class ServiceRequestFormComponent implements OnInit {
     };
 
     if (this.isEditMode && this.requestId) {
+       // FIX: Explicitly set the ID for PUT requests to avoid ID mismatch with backend
+       formData.id = this.requestId; // <-- THIS IS THE CRUCIAL LINE
       this.serviceRequestService.updateServiceRequest(this.requestId, formData).subscribe({
         next: () => {
           this.snackBar.open('Request updated successfully!', 'Close', { duration: 3000 });

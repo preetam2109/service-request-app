@@ -9,7 +9,7 @@ import { LoginModel } from '../models/login.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:7198/api/Auth'; // Replace with your backend auth URL
+  private apiUrl = 'https://service-request-e4ib.onrender.com/api/Auth'; // Replace with your backend auth URL
   private authTokenKey = 'authToken';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
 

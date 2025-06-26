@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ServiceRequestService {
-  private apiUrl = 'https://localhost:7198/api/ServiceRequests'; // Replace with your backend API URL
+  private apiUrl = 'https://service-request-e4ib.onrender.com/api/ServiceRequests'; // Replace with your backend API URL
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
